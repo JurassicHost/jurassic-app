@@ -1,5 +1,6 @@
 const { app, BrowserWindow, nativeTheme } = require("electron");
 const path = require("path");
+require("update-electron-app")();
 
 function createWindow() {
   // Create the browser window.
@@ -14,16 +15,14 @@ function createWindow() {
       nodeIntegration: true,
       webviewTag: true,
       enableRemoteModule: true,
-      //icon: path.join(__dirname, "/src/images/jurassichost.png"), // Set app icon
+      icon: path.join(__dirname, "/assets/jurassic-host-app.png"), // Set app icon
     },
   });
 
   mainWindow.setMenuBarVisibility(false);
   mainWindow.loadFile("index.html");
 
-  /*mainWindow.setIcon(
-    path.join(__dirname, "/src/images/jurassichost.png")
-  ); // Set app icon*/
+  mainWindow.setIcon(path.join(__dirname, "/assets/jurassic-host-app.png")); // Set app icon
 }
 
 app.whenReady().then(() => {
